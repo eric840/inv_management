@@ -35,8 +35,8 @@ def store_create():
     if store.save(): 
         flash("Store created!", "success")
         return redirect(url_for('store_new'))
-        # return render_template('store.html')
-        # NOT GOOD PRACTISE
+    else:
+        return render_template('store.html',  errors=store.errors)
 
 
 @app.route("/warehouse", methods=['GET'])
